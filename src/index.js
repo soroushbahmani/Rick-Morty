@@ -2,16 +2,64 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import { ThemeProvider, createTheme } from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Character from './components/Character';
+
+const client = new ApolloClient({
+    uri: 'https://rickandmortyapi.com/graphql',
+    cache: new InMemoryCache(),
+});
+
+
+const theme = createTheme({
+    typography: {
+        h1: {
+            fontSize: '1.4rem',
+        },
+        h2: {
+            fontSize: '1.3rem',
+        },
+        h3: {
+            fontSize: '1rem',
+        },
+        h4: {
+            fontSize: '.7rem',
+        },
+        h5: {
+            fontSize: '.6rem',
+        },
+        h6: {
+            fontSize: '.5rem',
+        },
+        subtitle1: {
+            fontSize: '1rem',
+            fontWeight: 'lighter'
+        },
+
+        body1: {
+            fontSize: '1rem',
+            fontWeight: 500,
+        },
+    },
+
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+    <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+            <BrowserRouter>
+                <Routes>
+                    <Route index path="/" element={<App />} />
+                    <Route path='/Character/:id' element={<Character />} />
+                </Routes>
+            </BrowserRouter>
+
+
+        </ThemeProvider>
+    </ApolloProvider>
+
+);
