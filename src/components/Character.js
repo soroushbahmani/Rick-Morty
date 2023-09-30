@@ -26,7 +26,7 @@ export default function Character() {
             <Link to={'/'} style={{ background: 'rgb(60, 62, 68)', color: 'white', display: 'flex', justifyContent: 'center', width: '60px', height: '40px', alignItems: 'center', borderRadius: '6px', marginBottom: '20px' }}>
                 <ArrowBack />
             </Link>
-            <Stack padding={'30px'} mx={'auto'} color={'white'} borderRadius={'10px'} direction={'column'} flexWrap={'wrap'} bgcolor={'rgb(60, 62, 68)'} >
+            <Stack padding={'30px'} mx={'auto'} color={'white'} borderRadius={'10px'} direction={'column'} style={{width:'max-content'}} flexWrap={'wrap'} bgcolor={'rgb(60, 62, 68)'} >
                 <img src={data?.character?.image} style={{ borderRadius: '10px' }} alt="" />
                 <Box sx={{ p: 3 }}>
                     <Typography variant='h1'>
