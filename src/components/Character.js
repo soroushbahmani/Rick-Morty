@@ -23,10 +23,10 @@ export default function Character() {
     return (
 
         <Container sx={{ py: '100px' }}>
-            <Link to={'/'} style={{ background: 'rgb(60, 62, 68)' ,color:'white',display:'flex' , justifyContent:'center',width:'60px',height:'40px',alignItems:'center' , borderRadius:'6px',marginBottom:'20px'}}>
+            <Link to={'/'} style={{ background: 'rgb(60, 62, 68)', color: 'white', display: 'flex', justifyContent: 'center', width: '60px', height: '40px', alignItems: 'center', borderRadius: '6px', marginBottom: '20px' }}>
                 <ArrowBack />
             </Link>
-            <Stack padding={'30px'} color={'white'} borderRadius={'10px'} direction={'row'} bgcolor={'rgb(60, 62, 68)'} >
+            <Stack padding={'30px'} mx={'auto'} color={'white'} borderRadius={'10px'} direction={'column'} flexWrap={'wrap'} bgcolor={'rgb(60, 62, 68)'} >
                 <img src={data?.character?.image} style={{ borderRadius: '10px' }} alt="" />
                 <Box sx={{ p: 3 }}>
                     <Typography variant='h1'>

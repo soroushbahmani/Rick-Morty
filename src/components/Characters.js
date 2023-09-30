@@ -60,7 +60,7 @@ export default function Characters() {
             color: 'white'
           },
 
-          width: '300px'
+          
         }} inputProps={{}} size="small" label="search" variant="filled" color="info" onInput={e => inputHandler(e)} />
 
         <Button variant="contained" sx={{ p: 1, mx: 2 }} size="large" onClick={searchHandler}>
@@ -76,7 +76,7 @@ export default function Characters() {
               {
                 Boolean(data?.characters?.results?.length) == true ?
                   <>
-                    <Stack color={'white'} spacing={{ xs: 2, sm: 5, lg: 10, xl: 10 }} direction="row" useFlexGap flexWrap="wrap" justifyContent={'space-evenly'} alignItems={'center'}>
+                    <Stack color={'white'}  spacing={{ xs: 2, sm: 5, lg: 10, xl: 10 }} direction="row" useFlexGap flexWrap="wrap" justifyContent={'space-evenly'} alignItems={'center'}>
                       {
                         data?.characters?.results.map(e =>
                           <Link key={e.id} style={{ color: 'white', textDecoration: 'none' }} to={`/Character/${e.id}`}>
@@ -107,7 +107,7 @@ export default function Characters() {
                       }
                     </Stack>
                     <Box mt={'100px'} sx={{ py: 1, bgcolor: 'white', borderRadius: '10px', width: 'max-content', mx: 'auto' }}>
-                      <Pagination count={count} page={page} color="primary" size="large" onChange={pageinationHandler} />
+                      <Pagination count={count} page={page} color="primary" size="small" onChange={pageinationHandler} />
                     </Box>
                   </>
                   :
